@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNS Records & Zone Status</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, monospace;
+        }
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+        .container {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            max-width: 720px;
+            width: 100%;
+            padding: 2rem;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #21262d;
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        .title-group h1 {
+            font-size: 1.25rem;
+            color: #58a6ff;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+        .title-group p {
+            font-size: 0.85rem;
+            color: #8b949e;
+            margin-top: 0.25rem;
+        }
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(46, 160, 67, 0.15);
+            color: #3fb950;
+            border: 1px solid rgba(46, 160, 67, 0.4);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.75rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+        }
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #3fb950;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+            text-align: left;
+        }
+        th {
+            color: #8b949e;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #21262d;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #21262d;
+            color: #e6edf3;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        .type-badge {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 6px;
+        }
+        .type-a { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+        .type-cname { background: rgba(168, 85, 247, 0.15); color: #c084fc; }
+        .type-mx { background: rgba(251, 146, 60, 0.15); color: #fb923c; }
+        .type-ns { background: rgba(52, 211, 153, 0.15); color: #34d399; }
+        .code-val {
+            font-family: monospace;
+            background: #0d1117;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            border: 1px solid #30363d;
+            font-size: 0.8rem;
+        }
+        .footer {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #21262d;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #6e7681;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="title-group">
+            <h1>DNS Zone Configuration</h1>
+            <p>Active records configured for the zone domain</p>
+        </div>
+        <div class="status-pill">
+            <span class="status-dot"></span>
+            Operational
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Host</th>
+                <th>Target / Value</th>
+                <th>Priority / TTL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="type-badge type-a">A</span></td>
+                <td>@</td>
+                <td><span class="code-val">185.199.108.153</span></td>
+                <td>1 Hour</td>
+            </tr>
+            <tr>
+                <td><span class="type-badge type-cname">CNAME</span></td>
+                <td>www</td>
+                <td><span class="code-val">mertaltiparmak.cloud-ip.cc</span></td>
+                <td>1 Hour</td>
+            </tr>
+            <tr>
+                <td><span class="type-badge type-mx">MX</span></td>
+                <td>@</td>
+                <td><span class="code-val">smtp.google.com</span></td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td><span class="type-badge type-ns">NS</span></td>
+                <td>@</td>
+                <td><span class="code-val">pns1.cloudns.net</span></td>
+                <td>Default</td>
+            </tr>
+            <tr>
+                <td><span class="type-badge type-ns">NS</span></td>
+                <td>@</td>
+                <td><span class="code-val">pns2.cloudns.net</span></td>
+                <td>Default</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        <span>DNS Verification Dashboard</span>
+        <span>RFC 1035 Standard Compliant</span>
+    </div>
+</div>
+
+</body>
+</html>
