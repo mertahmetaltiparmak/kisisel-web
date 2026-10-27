@@ -51,7 +51,60 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
         }
 
-        /* Üst Başlık & Durum Çubuğu */
+        /* Öğrenci Bilgisi Üst Çubuğu */
+        .student-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(56, 189, 248, 0.06);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 12px;
+            padding: 0.85rem 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .student-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .student-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #0284c7;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .student-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+
+        .student-id {
+            font-size: 0.82rem;
+            color: var(--accent-cyan);
+            font-family: ui-monospace, SFMono-Regular, monospace;
+        }
+
+        .verified-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.12);
+            padding: 0.3rem 0.65rem;
+            border-radius: 6px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        /* Başlık & Durum */
         .header {
             display: flex;
             flex-wrap: wrap;
@@ -59,12 +112,12 @@
             align-items: center;
             gap: 1rem;
             border-bottom: 1px solid var(--border);
-            padding-bottom: 1.5rem;
-            margin-bottom: 1.75rem;
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
         }
 
         .title-area h1 {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.5px;
             display: flex;
@@ -89,7 +142,6 @@
             border-radius: 9999px;
             font-size: 0.78rem;
             font-weight: 600;
-            letter-spacing: 0.3px;
         }
 
         .pulse-dot {
@@ -107,12 +159,12 @@
             100% { transform: scale(0.95); opacity: 0.8; }
         }
 
-        /* Bilgi Kartları İstatistikleri */
+        /* İstatistik Kartları */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 1rem;
-            margin-bottom: 1.75rem;
+            margin-bottom: 1.5rem;
         }
 
         .stat-card {
@@ -136,7 +188,7 @@
             color: var(--text-main);
         }
 
-        /* Kayıt Listesi */
+        /* Kayıt Tablosu */
         .records-wrapper {
             border: 1px solid var(--border);
             border-radius: 14px;
@@ -238,12 +290,29 @@
             .host-name, .ttl-col {
                 display: none;
             }
+            .student-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="dashboard">
+    <!-- Öğrenci Bilgisi Alanı -->
+    <div class="student-banner">
+        <div class="student-info">
+            <div class="student-avatar">MA</div>
+            <div>
+                <div class="student-name">Mert Ahmet Altıparmak</div>
+                <div class="student-id">Öğrenci No: 24370031054</div>
+            </div>
+        </div>
+        <div class="verified-tag">DNS & Web Yayını Ödevi</div>
+    </div>
+
     <div class="header">
         <div class="title-area">
             <h1>
@@ -258,7 +327,7 @@
         </div>
         <div class="status-badge">
             <span class="pulse-dot"></span>
-            Global Propagation: 100%
+            Operational
         </div>
     </div>
 
@@ -268,8 +337,8 @@
             <div class="stat-value" style="color: var(--accent-cyan);">Anycast Active</div>
         </div>
         <div class="stat-card">
-            <div class="stat-label">Total Records</div>
-            <div class="stat-value">5 Configured</div>
+            <div class="stat-label">Configured Records</div>
+            <div class="stat-value">5 Records</div>
         </div>
         <div class="stat-card">
             <div class="stat-label">Nameserver Cluster</div>
